@@ -865,6 +865,10 @@
     if (event.key === 'Enter') joinFlightRoom();
   });
 
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') closeModal();
+  });
+
   if (logoutButton) {
     logoutButton.addEventListener('click', async function () {
       logoutButton.disabled = true;
