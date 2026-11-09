@@ -1,0 +1,148 @@
+/* Game room */
+.games-shell { width: min(1080px, calc(100% - 48px)); margin: 0 auto; padding: 60px 0 88px; }
+.games-hero { padding: 10px 0 37px; text-align: center; }
+.games-hero .section-kicker { display: inline-block; margin-bottom: 8px; color: var(--pink); font-family: Georgia, serif; font-size: 10px; letter-spacing: 0.22em; }
+.games-hero h1 { margin: 0; font-family: var(--hand); font-size: clamp(42px, 6vw, 66px); line-height: 1.2; letter-spacing: 0.05em; }
+.games-hero p { margin: 10px 0 0; color: var(--ink-soft); font-size: 13px; letter-spacing: 0.06em; }
+.games-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.game-card { position: relative; min-height: 255px; overflow: hidden; padding: 27px 28px 24px; border: 1px solid rgba(132, 105, 90, 0.12); border-radius: 5px 20px 5px 20px; box-shadow: var(--shadow-soft); transition: transform 220ms ease, box-shadow 220ms ease; }
+.game-card:nth-child(2) { border-radius: 20px 5px 20px 5px; }
+.game-card:hover { box-shadow: var(--shadow); transform: translateY(-4px) rotate(-0.3deg); }
+.game-card-pink { background: linear-gradient(145deg, #fffaf2, #fce9e3); }
+.game-card-sage { background: linear-gradient(145deg, #fffaf2, #e4eee4); }
+.game-card-blue { background: linear-gradient(145deg, #fffaf2, #e4eef1); }
+.game-card-yellow { background: linear-gradient(145deg, #fffaf2, #f8edc7); }
+.game-sticker { position: absolute; top: 18px; right: 22px; color: rgba(232, 142, 145, 0.68); font-family: Georgia, serif; font-size: 27px; animation: gentleFloat 5s ease-in-out infinite; }
+.game-icon { display: grid; width: 48px; height: 48px; margin-bottom: 16px; place-items: center; border: 1px dashed rgba(132, 105, 90, 0.24); border-radius: 50%; color: var(--pink); font-family: Georgia, serif; font-size: 22px; }
+.game-card h2 { margin: 0; font-family: var(--hand); font-size: 25px; letter-spacing: 0.04em; }
+.game-card p { margin: 7px 0 18px; color: var(--ink-soft); font-size: 12px; line-height: 1.8; }
+.game-open { padding: 8px 14px; border: 1px solid var(--pink); border-radius: 999px; color: var(--white); background: var(--pink); font-size: 11px; letter-spacing: 0.08em; cursor: pointer; transition: background 180ms ease, transform 180ms ease; }
+.game-open:hover { background: #dc7f83; transform: translateY(-1px); }
+.game-card-yellow .game-open { border-color: var(--sage); background: var(--sage); }
+.game-card-yellow .game-open:hover { background: #89a590; }
+
+/* Game modal */
+.game-modal-backdrop { position: fixed; inset: 0; z-index: 100; display: grid; padding: 20px; place-items: center; background: rgba(61, 44, 42, 0.35); backdrop-filter: blur(5px); opacity: 0; pointer-events: none; transition: opacity 220ms ease; }
+.game-modal-backdrop.is-visible { opacity: 1; pointer-events: auto; }
+.game-modal { width: min(660px, 100%); max-height: calc(100vh - 40px); overflow-y: auto; padding: 27px 31px 31px; border-radius: 7px 23px 7px 23px; background: var(--white); box-shadow: var(--shadow); transform: translateY(15px); transition: transform 220ms ease; }
+.game-modal-backdrop.is-visible .game-modal { transform: translateY(0); }
+.game-modal-head { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 21px; }
+.game-modal-head h2 { margin: 0; font-family: var(--hand); font-size: 31px; letter-spacing: 0.04em; }
+.game-hint { margin: 0 0 18px; color: var(--ink-soft); font-size: 12px; text-align: center; }
+.game-view[hidden] { display: none; }
+.truth-modes { display: flex; justify-content: center; gap: 7px; margin-bottom: 17px; }
+.mode-btn { padding: 6px 14px; border: 1px dashed rgba(132, 105, 90, 0.32); border-radius: 999px; color: var(--ink-soft); background: transparent; font-size: 11px; cursor: pointer; }
+.mode-btn.is-active { border-style: solid; border-color: var(--pink); color: var(--white); background: var(--pink); }
+.truth-card { position: relative; display: flex; min-height: 220px; align-items: center; justify-content: center; flex-direction: column; padding: 35px 37px; border: 1px solid rgba(132, 105, 90, 0.12); border-radius: 4px 18px 4px 18px; background: linear-gradient(145deg, #fce9e3, #fffaf2); text-align: center; }
+.truth-card-tag { margin-bottom: 15px; padding: 2px 10px; border-radius: 999px; color: var(--pink); background: rgba(255, 253, 249, 0.8); font-family: var(--hand); font-size: 12px; }
+.truth-card p { max-width: 450px; margin: 0; color: var(--ink); font-family: var(--hand); font-size: 23px; line-height: 1.7; }
+.truth-card-heart { position: absolute; right: 22px; bottom: 14px; color: rgba(232, 142, 145, 0.72); font-family: Georgia, serif; font-size: 24px; }
+.game-action { display: block; min-width: 140px; margin: 20px auto 0; padding: 10px 19px; border: 0; border-radius: 999px; color: var(--white); background: var(--pink); font-size: 12px; letter-spacing: 0.08em; cursor: pointer; transition: background 180ms ease, transform 180ms ease; }
+.game-action:hover { background: #dc7f83; transform: translateY(-1px); }
+.nine-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; width: min(420px, 100%); margin: 0 auto; }
+.grid-cell { display: flex; aspect-ratio: 1 / 1; align-items: center; justify-content: center; padding: 10px; border: 1px dashed rgba(132, 105, 90, 0.28); border-radius: 5px 14px 5px 14px; color: var(--ink-soft); background: var(--paper); font-family: var(--hand); font-size: 16px; line-height: 1.55; text-align: center; cursor: pointer; transition: background 180ms ease, transform 180ms ease; }
+.grid-cell:hover { background: var(--pink-pale); transform: scale(1.02); }
+.grid-cell.is-open { border-style: solid; border-color: var(--pink-soft); color: var(--ink); background: var(--pink-pale); cursor: default; }
+.grid-cell.is-open[data-kind="dare"] { background: var(--yellow-pale); }
+.grid-cell small { display: block; margin-top: 5px; color: var(--pink); font-family: var(--body); font-size: 8px; letter-spacing: 0.06em; }
+.tic-board { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; width: min(330px, 100%); margin: 0 auto; }
+.tic-cell { display: grid; aspect-ratio: 1 / 1; place-items: center; border: 1px solid rgba(132, 105, 90, 0.2); border-radius: 4px 12px 4px 12px; color: var(--pink); background: var(--paper); font-family: Georgia, serif; font-size: 48px; cursor: pointer; transition: background 180ms ease; }
+.tic-cell:hover { background: var(--pink-pale); }
+.tic-cell.is-o { color: var(--sage); }
+.tic-cell.is-filled { cursor: default; }
+#ticStatus { font-family: var(--hand); font-size: 17px; color: var(--pink); }
+.flight-view { min-height: 270px; }
+.flight-placeholder { display: flex; min-height: 250px; align-items: center; justify-content: center; flex-direction: column; gap: 16px; padding: 30px 24px; border: 1px dashed rgba(132, 105, 90, 0.25); border-radius: 5px 18px 5px 18px; background: var(--yellow-pale); text-align: center; }
+.flight-placeholder span { color: var(--pink); font-family: Georgia, serif; font-size: 42px; animation: gentleFloat 4s ease-in-out infinite; }
+.flight-placeholder p { max-width: 390px; margin: 0; color: var(--ink-soft); font-family: var(--hand); font-size: 18px; line-height: 1.8; }
+
+@media (max-width: 700px) {
+  .games-shell { width: calc(100% - 24px); padding: 40px 0 65px; }
+  .games-hero { padding-bottom: 27px; }
+  .games-hero h1 { font-size: 41px; }
+  .games-hero p { font-size: 11px; }
+  .games-grid { grid-template-columns: 1fr; gap: 14px; }
+  .game-card { min-height: 220px; padding: 23px 22px 21px; }
+  .game-card h2 { font-size: 23px; }
+  .game-modal { padding: 23px 18px 25px; }
+  .game-modal-head h2 { font-size: 27px; }
+  .truth-card { min-height: 190px; padding: 28px 20px; }
+  .truth-card p { font-size: 20px; }
+  .grid-cell { padding: 6px; font-size: 13px; }
+}
+
+/* Ferris wheel truth or dare */
+.ferris-wheel-stage { position: relative; display: grid; width: min(430px, 100%); min-height: 420px; margin: 2px auto 10px; place-items: center; }
+.ferris-wheel { position: relative; width: min(340px, 78vw); aspect-ratio: 1 / 1; border-radius: 50%; will-change: transform; }
+.wheel-rim { position: absolute; inset: 0; border: 2px dashed rgba(232, 142, 145, 0.58); border-radius: 50%; box-shadow: 0 0 0 11px rgba(252, 233, 227, 0.42), 0 14px 35px rgba(109, 82, 67, 0.1); }
+.wheel-rim::before { content: ""; position: absolute; inset: 18px; border: 1px dashed rgba(155, 180, 163, 0.38); border-radius: 50%; }
+.wheel-hub { position: absolute; z-index: 8; display: grid; width: 55px; height: 55px; place-items: center; border: 4px solid var(--white); border-radius: 50%; color: var(--white); background: var(--pink); box-shadow: 0 4px 12px rgba(160, 95, 95, 0.22); font-family: Georgia, serif; font-size: 10px; letter-spacing: 0.12em; pointer-events: none; }
+.wheel-pointer { position: absolute; top: 14px; left: 50%; z-index: 9; width: 0; height: 0; border-top: 19px solid var(--pink); border-right: 11px solid transparent; border-left: 11px solid transparent; filter: drop-shadow(0 3px 3px rgba(120, 75, 65, 0.18)); transform: translateX(-50%); }
+.wheel-spoke { position: absolute; top: 50%; left: 50%; height: 1px; border-top: 1px dashed rgba(232, 142, 145, 0.38); transform-origin: left center; pointer-events: none; }
+.wheel-light { position: absolute; top: 50%; left: 50%; width: 5px; height: 5px; margin: -2.5px 0 0 -2.5px; border-radius: 50%; background: var(--yellow); box-shadow: 0 0 6px rgba(232, 198, 110, 0.8); pointer-events: none; }
+.wheel-cabin { position: absolute; top: 50%; left: 50%; display: grid; width: 52px; height: 38px; margin: -19px 0 0 -26px; place-items: center; border: 2px solid var(--white); border-radius: 13px 13px 18px 18px; color: var(--ink-soft); background: var(--pink-pale); box-shadow: 0 5px 12px rgba(109, 82, 67, 0.13); font-family: Georgia, serif; font-size: 12px; letter-spacing: 0.08em; will-change: transform; }
+.wheel-cabin:nth-child(odd) { background: var(--sage-pale); }
+.wheel-cabin.is-selected { color: var(--white); background: var(--pink); box-shadow: 0 0 0 4px rgba(232, 142, 145, 0.18), 0 8px 18px rgba(109, 82, 67, 0.18); }
+.wheel-result { display: flex; min-height: 104px; align-items: center; justify-content: center; flex-direction: column; margin: 10px auto 0; padding: 17px 24px; border: 1px solid rgba(132, 105, 90, 0.12); border-radius: 4px 16px 4px 16px; background: linear-gradient(145deg, #fce9e3, #fffaf2); text-align: center; }
+.wheel-result .truth-card-tag { margin-bottom: 8px; }
+.wheel-result p { max-width: 480px; margin: 0; color: var(--ink); font-family: var(--hand); font-size: 19px; line-height: 1.7; }
+.wheel-result .truth-card-heart { position: static; margin-top: 7px; color: rgba(232, 142, 145, 0.72); font-family: Georgia, serif; font-size: 18px; }
+.truth-card { display: none; }
+@media (max-width: 700px) {
+  .ferris-wheel-stage { min-height: 335px; }
+  .ferris-wheel { width: min(280px, 76vw); }
+  .wheel-cabin { width: 44px; height: 33px; margin: -16.5px 0 0 -22px; font-size: 10px; }
+  .wheel-hub { width: 47px; height: 47px; font-size: 8px; }
+  .wheel-pointer { top: 5px; }
+  .wheel-result { min-height: 92px; padding: 15px 17px; }
+  .wheel-result p { font-size: 17px; }
+}
+
+/* Online tic-tac-toe room */
+.join-room-row { display: flex; gap: 8px; width: min(430px, 100%); margin: 0 auto 12px; }
+.join-room-row input { flex: 1; min-width: 0; padding: 10px 13px; border: 1px solid rgba(132, 105, 90, 0.22); border-radius: 999px; outline: none; color: var(--ink); background: var(--paper); font: inherit; font-size: 13px; text-align: center; letter-spacing: 0.12em; }
+.join-room-row input:focus { border-color: var(--pink); box-shadow: 0 0 0 3px rgba(232, 142, 145, 0.14); }
+.game-action.small { min-width: 100px; margin-top: 0; padding: 9px 14px; font-size: 11px; }
+.room-code-line { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0 auto 16px; color: var(--ink-soft); font-size: 11px; }
+.room-code-line strong { color: var(--pink); font-family: Georgia, serif; font-size: 18px; letter-spacing: 0.16em; }
+.tic-room-actions { display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 17px; }
+.tic-room-actions .game-action { margin-top: 0; }
+.tic-board { margin-top: 4px; }
+@media (max-width: 700px) {
+  .join-room-row { flex-direction: column; }
+  .join-room-row .game-action { width: 100%; }
+  .room-code-line { flex-wrap: wrap; }
+}
+
+/* Online flight chess */
+.flight-board { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 5px; width: 100%; margin: 6px auto 16px; }
+.flight-tile { position: relative; display: flex; min-height: 55px; align-items: center; justify-content: center; flex-direction: column; padding: 5px 3px; border: 1px solid rgba(132, 105, 90, 0.16); border-radius: 4px 11px 4px 11px; color: var(--ink-soft); background: var(--paper); font-family: var(--hand); font-size: 11px; line-height: 1.25; text-align: center; }
+.flight-tile .tile-number { position: absolute; top: 3px; left: 5px; color: rgba(89, 73, 67, 0.35); font-family: Georgia, serif; font-size: 7px; }
+.flight-tile .tile-label { font-size: 10px; }
+.flight-tile[data-kind="truth"] { background: var(--pink-pale); }
+.flight-tile[data-kind="dare"] { background: var(--yellow-pale); }
+.flight-tile[data-kind="sweet"] { background: #f8ddd8; }
+.flight-tile[data-kind="boost"] { background: var(--sage-pale); }
+.flight-tile[data-kind="back"] { background: #e4eef1; }
+.flight-tile[data-kind="rest"] { background: #eee8df; }
+.flight-tile[data-kind="start"] { color: var(--white); background: var(--sage); }
+.flight-tile[data-kind="finish"] { color: var(--white); background: var(--pink); }
+.tile-tokens { position: absolute; right: 4px; bottom: 3px; display: flex; gap: 2px; }
+.tile-token { display: grid; min-width: 17px; height: 17px; padding: 0 3px; place-items: center; border-radius: 999px; color: var(--white); background: var(--pink); font-family: var(--hand); font-size: 8px; line-height: 1; box-shadow: 0 2px 4px rgba(109, 82, 67, 0.16); }
+.tile-token.guest { background: var(--sage); }
+.flight-controls { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 9px; margin-top: 2px; }
+.flight-controls .game-action { margin-top: 0; min-width: 105px; }
+.dice-box { display: grid; width: 53px; height: 53px; place-items: center; border: 1px dashed rgba(232, 142, 145, 0.55); border-radius: 15px; color: var(--pink); background: var(--pink-pale); font-family: Georgia, serif; font-size: 28px; font-weight: 700; }
+.dice-box.is-rolling { animation: diceShake 180ms linear infinite; }
+.flight-event { min-height: 53px; margin-top: 14px; padding: 11px 15px; border: 1px dashed rgba(132, 105, 90, 0.22); border-radius: 4px 12px 4px 12px; color: var(--ink-soft); background: rgba(255, 250, 241, 0.7); font-family: var(--hand); font-size: 15px; line-height: 1.7; text-align: center; }
+.flight-event strong { display: block; margin-bottom: 3px; color: var(--pink); font-size: 13px; }
+@keyframes diceShake { 0%, 100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg) translateY(-2px); } }
+@media (max-width: 700px) {
+  .flight-board { gap: 3px; }
+  .flight-tile { min-height: 43px; padding: 4px 2px; font-size: 9px; }
+  .flight-tile .tile-label { font-size: 8px; }
+  .flight-tile .tile-number { top: 2px; left: 3px; font-size: 6px; }
+  .tile-token { min-width: 14px; height: 14px; padding: 0 2px; font-size: 7px; }
+  .dice-box { width: 47px; height: 47px; font-size: 24px; }
+  .flight-controls .game-action { min-width: 95px; }
+}

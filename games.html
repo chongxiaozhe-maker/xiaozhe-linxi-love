@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#fbf4e8">
+  <title>小游戏 · 小哲 & 琳茜</title>
+  <link rel="stylesheet" href="account.css">
+  <link rel="stylesheet" href="games.css">
+  <link rel="stylesheet" href="mobile-nav.css">
+</head>
+<body>
+  <div class="account-bg">
+    <header class="account-topbar">
+      <a class="account-brand" href="index.html">
+        <span class="heart-mark">&#9825;</span>
+        <span>小哲 <i>&amp;</i> 琳茜</span>
+      </a>
+      <nav class="account-nav">
+        <a href="index.html">首页</a>
+        <a href="space.html">双人空间</a>
+        <a class="nav-em" href="games.html">小游戏</a>
+        <button class="room-btn" id="logoutButton" type="button">退出登录</button>
+      </nav>
+    </header>
+
+    <main class="games-shell">
+      <div class="games-hero">
+        <span class="section-kicker">OUR PLAYROOM</span>
+        <h1>我们的小游戏厅</h1>
+        <p>隔着屏幕，也要一起玩。</p>
+      </div>
+
+      <div class="games-grid" id="gamesGrid">
+        <article class="game-card game-card-pink" data-game="truth" data-title="真心话大冒险">
+          <span class="game-sticker">&#9825;</span>
+          <div class="game-icon">&#127183;</div>
+          <h2>真心话大冒险</h2>
+          <p>抽一张卡，把藏起来的小心思交给对方。</p>
+          <button class="game-open" type="button" data-open-game="truth">开始游戏</button>
+        </article>
+        <article class="game-card game-card-sage" data-game="grid" data-title="心动九宫格">
+          <span class="game-sticker">&#10022;</span>
+          <div class="game-icon">&#9638;</div>
+          <h2>心动九宫格</h2>
+          <p>九个格子，九个只属于你们的题目。</p>
+          <button class="game-open" type="button" data-open-game="grid">开始游戏</button>
+        </article>
+        <article class="game-card game-card-blue" data-game="tic" data-title="井字棋">
+          <span class="game-sticker">&#10047;</span>
+          <div class="game-icon">#</div>
+          <h2>井字棋</h2>
+          <p>三子连成线，输的人答应赢家一件事。</p>
+          <button class="game-open" type="button" data-open-game="tic">开始游戏</button>
+        </article>
+        <article class="game-card game-card-yellow" data-game="flight" data-title="恋爱飞行棋">
+          <span class="game-sticker">&#9992;</span>
+          <div class="game-icon">&#127922;</div>
+          <h2>恋爱飞行棋</h2>
+          <p>掷骰子、走格子，在飞行棋里完成甜蜜任务。</p>
+          <button class="game-open" type="button" data-open-game="flight">开始游戏</button>
+        </article>
+      </div>
+
+      <p class="space-footer">点开一个格子，看看你们抽到了什么。</p>
+    </main>
+  </div>
+
+  <div class="game-modal-backdrop" id="gameModal" aria-hidden="true">
+    <section class="game-modal" role="dialog" aria-modal="true" aria-labelledby="gameModalTitle">
+      <header class="game-modal-head">
+        <h2 id="gameModalTitle"></h2>
+        <button class="modal-close" id="closeGameModal" type="button" aria-label="关闭">&#215;</button>
+      </header>
+
+      <div class="game-view" data-view="truth" hidden>
+        <div class="truth-modes">
+          <button class="mode-btn is-active" type="button" data-truth-mode="truth">真心话</button>
+          <button class="mode-btn" type="button" data-truth-mode="dare">大冒险</button>
+          <button class="mode-btn" type="button" data-truth-mode="random">随机</button>
+        </div>
+        <div class="ferris-wheel-stage" id="ferrisStage">
+          <span class="wheel-pointer" aria-hidden="true"></span>
+          <div class="ferris-wheel" id="ferrisWheel">
+            <div class="wheel-rim" aria-hidden="true"></div>
+          </div>
+          <div class="wheel-hub">LUCK</div>
+        </div>
+        <div class="wheel-result" id="truthCard">
+          <span class="truth-card-tag" id="truthCardTag">真心话</span>
+          <p id="truthCardText">转动摩天轮，看看今天会抽到什么。</p>
+          <span class="truth-card-heart">&#9825;</span>
+        </div>
+        <button class="game-action" id="drawTruthButton" type="button">转动摩天轮</button>
+      </div>
+
+      <div class="game-view" data-view="grid" hidden>
+        <p class="game-hint">点开一个格子，看看你们抽到了什么。</p>
+        <div class="nine-grid" id="nineGrid"></div>
+        <button class="game-action" id="resetGridButton" type="button">重新洗牌</button>
+      </div>
+
+      <div class="game-view" data-view="tic" hidden>
+        <div id="ticLobby">
+          <p class="game-hint">创建一个房间，把房间号发给对方，就能一起下棋。</p>
+          <div class="join-room-row">
+            <input id="roomCodeInput" type="text" maxlength="6" autocomplete="off" placeholder="输入 6 位房间号">
+            <button class="game-action small" id="joinRoomButton" type="button">加入房间</button>
+          </div>
+          <button class="game-action" id="createRoomButton" type="button">创建房间</button>
+        </div>
+        <div id="ticRoom" hidden>
+          <p class="game-hint" id="ticStatus">等待对方加入...</p>
+          <div class="room-code-line">
+            <span>房间号</span>
+            <strong id="ticRoomCode"></strong>
+            <button class="mini-add" id="copyRoomCodeButton" type="button">复制房间号</button>
+          </div>
+          <div class="tic-board" id="ticBoard"></div>
+          <div class="tic-room-actions">
+            <button class="game-action small" id="resetTicButton" type="button">再来一局</button>
+            <button class="room-btn" id="leaveRoomButton" type="button">离开房间</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="game-view flight-view" data-view="flight" hidden>
+        <div id="flightLobby">
+          <p class="game-hint">创建一个房间，把房间号发给对方，一起坐上恋爱飞行棋。</p>
+          <div class="join-room-row">
+            <input id="flightCodeInput" type="text" maxlength="6" autocomplete="off" placeholder="输入 6 位房间号">
+            <button class="game-action small" id="joinFlightButton" type="button">加入房间</button>
+          </div>
+          <button class="game-action" id="createFlightButton" type="button">创建飞行棋房间</button>
+        </div>
+        <div id="flightRoom" hidden>
+          <p class="game-hint" id="flightStatus">等待对方加入...</p>
+          <div class="room-code-line">
+            <span>房间号</span>
+            <strong id="flightRoomCode"></strong>
+            <button class="mini-add" id="copyFlightCodeButton" type="button">复制房间号</button>
+          </div>
+          <div class="flight-board" id="flightBoard"></div>
+          <div class="flight-controls">
+            <div class="dice-box"><span id="flightDice">?</span></div>
+            <button class="game-action" id="rollFlightButton" type="button">掷骰子</button>
+            <button class="room-btn" id="resetFlightButton" type="button">再来一局</button>
+            <button class="room-btn" id="leaveFlightButton" type="button">离开房间</button>
+          </div>
+          <div class="flight-event" id="flightEvent"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="auth-toast" id="gameToast" role="status" aria-live="polite"></div>
+
+  <div id="gameMessages" hidden>
+    <span data-msg="loading">正在布置游戏厅...</span>
+    <span data-msg="login">请先登录</span>
+    <span data-msg="truth_badge">真心话</span>
+    <span data-msg="dare_badge">大冒险</span>
+    <span data-msg="ttt_status_zhe">轮到小哲</span>
+    <span data-msg="ttt_status_linxi">轮到琳茜</span>
+    <span data-msg="ttt_win_zhe">小哲赢啦</span>
+    <span data-msg="ttt_win_linxi">琳茜赢啦</span>
+    <span data-msg="ttt_draw">平局啦</span>
+    <span data-msg="ttt_reset">再来一局</span>
+    <span data-msg="spinning">摩天轮正在转动...</span>
+    <span data-msg="tic_online_hint">创建一个房间，把房间号发给对方，就能一起下棋。</span>
+    <span data-msg="create_room">创建房间</span>
+    <span data-msg="join_room">加入房间</span>
+    <span data-msg="waiting_partner">等待对方加入...</span>
+    <span data-msg="your_turn">轮到你啦</span>
+    <span data-msg="partner_turn">等对方落子...</span>
+    <span data-msg="room_not_found">没有找到这个房间</span>
+    <span data-msg="room_full">房间已经满了</span>
+    <span data-msg="create_room_fail">创建房间失败，请重试</span>
+    <span data-msg="join_room_fail">加入房间失败，请重试</span>
+    <span data-msg="leave_room">离开房间</span>
+    <span data-msg="copy_code">复制房间号</span>
+    <span data-msg="code_copied">房间号已复制</span>
+    <span data-msg="you_win">你赢啦</span>
+    <span data-msg="flight_online_hint">创建一个房间，把房间号发给对方，一起坐上恋爱飞行棋。</span>
+    <span data-msg="flight_create">创建飞行棋房间</span>
+    <span data-msg="flight_join">加入飞行棋房间</span>
+    <span data-msg="flight_roll">掷骰子</span>
+    <span data-msg="flight_you_roll">轮到你掷骰子</span>
+    <span data-msg="flight_wait_turn">等对方掷骰子...</span>
+    <span data-msg="flight_you_win">你先到终点啦</span>
+    <span data-msg="flight_partner_win">对方先到终点啦</span>
+    <span data-msg="flight_event_truth">抽到一张真心话</span>
+    <span data-msg="flight_event_dare">抽到一张大冒险</span>
+    <span data-msg="flight_event_sweet">抽到一张甜蜜任务</span>
+    <span data-msg="flight_event_boost">前进两格</span>
+    <span data-msg="flight_event_back">后退两格</span>
+    <span data-msg="flight_event_rest">暂停一轮</span>
+    <span data-msg="flight_event_none">平安落地，继续前进</span>
+    <span data-msg="flight_tile_start">起点</span>
+    <span data-msg="flight_tile_finish">终点</span>
+    <span data-msg="flight_tile_truth">真心话</span>
+    <span data-msg="flight_tile_dare">大冒险</span>
+    <span data-msg="flight_tile_sweet">甜蜜</span>
+    <span data-msg="flight_tile_boost">前进</span>
+    <span data-msg="flight_tile_back">后退</span>
+    <span data-msg="flight_tile_rest">暂停</span>
+    <span data-msg="flight_you">你</span>
+    <span data-msg="flight_partner">TA</span>
+    <span data-msg="flight_skip_note">对方暂停一轮</span>
+    <span data-msg="flight_room_ready">房间已准备好</span>
+    <span data-msg="flight_roll_loading">骰子正在转...</span>
+    <span data-msg="partner_win">对方赢啦</span>
+    <span data-msg="spin_wheel">转动摩天轮</span>
+    <span data-msg="spin_again">再转一次</span>
+    <span data-msg="wheel_ready">转动摩天轮，看看今天会抽到什么。</span>
+    <span data-msg="auth_loading">正在进入你们的小宇宙...</span>
+  </div>
+
+
+  <nav class="mobile-dock" aria-label="mobile navigation">
+    <a class="dock-item" href="index.html"><span class="dock-icon">&#8962;</span><span>首页</span></a>
+    <a class="dock-item" href="space.html"><span class="dock-icon">&#9825;</span><span>空间</span></a>
+    <a class="dock-item is-active" href="games.html"><span class="dock-icon">&#10047;</span><span>游戏</span></a>
+  </nav>
+
+  <script src="vendor/supabase.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/games-data.js"></script>
+  <script src="js/games.js"></script>
+</body>
+</html>

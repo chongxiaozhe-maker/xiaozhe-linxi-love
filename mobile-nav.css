@@ -1,0 +1,41 @@
+/* Mobile bottom navigation */
+.mobile-dock { display: none; }
+@media (max-width: 680px) {
+  body { padding-bottom: 76px; }
+  .mobile-dock {
+    position: fixed;
+    z-index: 90;
+    right: 12px;
+    bottom: 10px;
+    left: 12px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    gap: 2px;
+    padding: 7px 8px;
+    border: 1px solid rgba(132, 105, 90, 0.14);
+    border-radius: 18px;
+    background: rgba(255, 250, 241, 0.94);
+    box-shadow: 0 10px 30px rgba(90, 65, 58, 0.17);
+    backdrop-filter: blur(18px);
+  }
+  .dock-item {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1px;
+    padding: 5px 2px;
+    border-radius: 12px;
+    color: var(--ink-soft);
+    font-size: 9px;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    transition: color 160ms ease, background 160ms ease;
+  }
+  .dock-icon { font-family: Georgia, serif; font-size: 18px; line-height: 1; }
+  .dock-item.is-active { color: var(--pink); background: var(--pink-pale); }
+  .dock-item:hover { color: var(--ink); background: var(--pink-pale); }
+}

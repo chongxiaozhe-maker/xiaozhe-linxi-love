@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#fbf4e8">
+  <title>双人空间 · 小哲 & 琳茜</title>
+  <link rel="stylesheet" href="account.css">
+  <link rel="stylesheet" href="mobile-nav.css">
+</head>
+<body>
+  <div class="account-bg">
+    <header class="account-topbar">
+      <a class="account-brand" href="index.html">
+        <span class="heart-mark">&#9825;</span>
+        <span>小哲 <i>&amp;</i> 琳茜</span>
+      </a>
+      <nav class="account-nav">
+        <a href="index.html">首页</a>
+        <a class="nav-em" href="space.html">双人空间</a>
+        <a href="games.html">小游戏</a>
+        <button class="room-btn" id="logoutButton" type="button">退出登录</button>
+      </nav>
+    </header>
+
+    <main class="space-shell">
+      <div class="space-hero">
+        <span class="section-kicker">OUR PRIVATE SPACE</span>
+        <h1>我们的双人空间</h1>
+        <p>两个房间，一个共同的小宇宙。</p>
+      </div>
+
+      <div class="space-grid" id="spaceGrid">
+        <article class="room-card" data-room="xiaozhe" data-empty="还没有照片哦" data-waiting="等待对方入住" data-waiting-hint="等 TA 注册后，这里就会出现 TA 的空间。">
+          <div class="room-cover">
+            <span class="room-cover-label">小哲的房间</span>
+            <div class="room-avatar" data-avatar></div>
+          </div>
+          <div class="room-body">
+            <div class="room-name-row">
+              <div>
+                <h2 class="room-name" data-name></h2>
+                <p class="room-city" data-city></p>
+              </div>
+            </div>
+            <p class="room-status" data-status></p>
+            <p class="room-bio" data-bio></p>
+            <div class="room-meta"><span data-mood></span><span data-kind>小哲的房间</span></div>
+            <div class="photo-grid" data-photos data-delete-label="删除"></div>
+            <div class="room-actions" data-actions>
+              <button class="room-btn primary" type="button" data-action="edit">编辑我的空间</button>
+              <button class="room-btn" type="button" data-action="upload">上传照片</button>
+            </div>
+            <div class="space-mini">
+              <div class="mini-head"><span>小纸条</span><button class="mini-add" type="button" data-action="add-note">写一张</button></div>
+              <div class="mini-list" data-notes data-empty="还没有小纸条"></div>
+            </div>
+            <div class="space-mini">
+              <div class="mini-head"><span>留言板</span><button class="mini-add" type="button" data-action="add-message">留句话</button></div>
+              <div class="mini-list" data-messages data-empty="还没有留言"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="room-card" data-room="linxi" data-empty="还没有照片哦" data-waiting="等待对方入住" data-waiting-hint="等 TA 注册后，这里就会出现 TA 的空间。">
+          <div class="room-cover">
+            <span class="room-cover-label">琳茜的房间</span>
+            <div class="room-avatar" data-avatar></div>
+          </div>
+          <div class="room-body">
+            <div class="room-name-row">
+              <div>
+                <h2 class="room-name" data-name></h2>
+                <p class="room-city" data-city></p>
+              </div>
+            </div>
+            <p class="room-status" data-status></p>
+            <p class="room-bio" data-bio></p>
+            <div class="room-meta"><span data-mood></span><span data-kind>琳茜的房间</span></div>
+            <div class="photo-grid" data-photos data-delete-label="删除"></div>
+            <div class="room-actions" data-actions>
+              <button class="room-btn primary" type="button" data-action="edit">编辑我的空间</button>
+              <button class="room-btn" type="button" data-action="upload">上传照片</button>
+            </div>
+            <div class="space-mini">
+              <div class="mini-head"><span>小纸条</span><button class="mini-add" type="button" data-action="add-note">写一张</button></div>
+              <div class="mini-list" data-notes data-empty="还没有小纸条"></div>
+            </div>
+            <div class="space-mini">
+              <div class="mini-head"><span>留言板</span><button class="mini-add" type="button" data-action="add-message">留句话</button></div>
+              <div class="mini-list" data-messages data-empty="还没有留言"></div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="space-footer">这些内容只有你们两个人能看到。</p>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="editBackdrop" aria-hidden="true">
+    <section class="edit-modal" role="dialog" aria-modal="true" aria-labelledby="editTitle">
+      <div class="modal-head">
+        <div>
+          <h2 id="editTitle">编辑我的空间</h2>
+          <p>写下此刻想留在空间里的话。</p>
+        </div>
+        <button class="modal-close" id="closeEditButton" type="button" aria-label="close">&#215;</button>
+      </div>
+      <form id="editForm">
+        <div class="field-row">
+          <div class="field">
+            <label for="editName">昵称</label>
+            <input id="editName" name="display_name" type="text" maxlength="24">
+          </div>
+          <div class="field">
+            <label for="editCity">所在城市</label>
+            <input id="editCity" name="city" type="text" maxlength="30">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="editStatus">当前状态</label>
+            <input id="editStatus" name="status" type="text" maxlength="60">
+          </div>
+          <div class="field">
+            <label for="editMood">今日心情</label>
+            <input id="editMood" name="mood" type="text" maxlength="20">
+          </div>
+        </div>
+        <div class="field">
+          <label for="editBio">想对你说</label>
+          <textarea id="editBio" name="bio" maxlength="1000"></textarea>
+        </div>
+        <p class="modal-note" id="editNote"></p>
+        <div class="modal-actions">
+          <button class="room-btn" id="cancelEditButton" type="button">取消</button>
+          <button class="room-btn primary" id="saveEditButton" type="submit">保存修改</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="noteBackdrop" aria-hidden="true">
+    <section class="edit-modal" role="dialog" aria-modal="true" aria-labelledby="noteModalTitle">
+      <div class="modal-head">
+        <div>
+          <h2 id="noteModalTitle">写一张</h2>
+          <p>写下此刻想留在空间里的话。</p>
+        </div>
+        <button class="modal-close" id="closeNoteButton" type="button" aria-label="关闭">&#215;</button>
+      </div>
+      <form id="noteForm">
+        <input id="noteId" type="hidden">
+        <div class="field">
+          <label for="noteTitle">标题</label>
+          <input id="noteTitle" type="text" maxlength="40">
+        </div>
+        <div class="field">
+          <label for="noteBody">内容</label>
+          <textarea id="noteBody" maxlength="1200" required></textarea>
+        </div>
+        <div class="field">
+          <label for="noteMood">心情</label>
+          <input id="noteMood" type="text" maxlength="12">
+        </div>
+        <p class="modal-note" id="noteNote"></p>
+        <div class="modal-actions">
+          <button class="room-btn" id="cancelNoteButton" type="button">取消</button>
+          <button class="room-btn primary" id="saveNoteButton" type="submit">保存纸条</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="messageBackdrop" aria-hidden="true">
+    <section class="edit-modal" role="dialog" aria-modal="true" aria-labelledby="messageModalTitle">
+      <div class="modal-head">
+        <div>
+          <h2 id="messageModalTitle">想对 TA 说</h2>
+          <p>这些内容只有你们两个人能看到。</p>
+        </div>
+        <button class="modal-close" id="closeMessageButton" type="button" aria-label="关闭">&#215;</button>
+      </div>
+      <form id="messageForm">
+        <input id="messageOwnerId" type="hidden">
+        <div class="field">
+          <label for="messageBody">想对 TA 说</label>
+          <textarea id="messageBody" maxlength="500" required></textarea>
+        </div>
+        <p class="modal-note" id="messageNote"></p>
+        <div class="modal-actions">
+          <button class="room-btn" id="cancelMessageButton" type="button">取消</button>
+          <button class="room-btn primary" id="sendMessageButton" type="submit">发送留言</button>
+        </div>
+      </form>
+    </section>
+  </div>
+
+  <div class="modal-backdrop" id="photoBackdrop" aria-hidden="true">
+    <section class="photo-viewer" role="dialog" aria-modal="true" aria-labelledby="photoViewerTitle">
+      <div class="modal-head">
+        <h2 id="photoViewerTitle">照片说明</h2>
+        <button class="modal-close" id="closePhotoButton" type="button" aria-label="关闭">&#215;</button>
+      </div>
+      <img id="photoViewerImg" alt="">
+      <p class="photo-viewer-caption" id="photoCaptionRead"></p>
+      <div class="photo-caption-editor" id="photoCaptionEditor">
+        <input id="photoCaptionInput" type="text" maxlength="100" placeholder="照片说明">
+        <button class="room-btn primary" id="saveCaptionButton" type="button">保存说明</button>
+      </div>
+    </section>
+  </div>
+
+  <input class="hidden-input" id="photoInput" type="file" accept="image/*">
+  <div class="auth-toast" id="spaceToast" role="status" aria-live="polite"></div>
+
+  <div id="spaceMessages" hidden>
+    <span data-msg="err_nickname">请填写昵称。</span>
+    <span data-msg="auth_missing">请先登录后再进入双人空间</span>
+    <span data-msg="profile_missing">没有找到你的空间资料，请联系小哲处理。</span>
+    <span data-msg="uploading">上传中...</span>
+    <span data-msg="upload_ok">照片上传成功</span>
+    <span data-msg="upload_fail">照片上传失败，请重试</span>
+    <span data-msg="save_ok">空间已更新</span>
+    <span data-msg="save_fail">保存失败，请重试</span>
+    <span data-msg="photo_delete_confirm">要删除这张照片吗？</span>
+    <span data-msg="photo_delete_ok">照片已删除</span>
+    <span data-msg="logout_loading">正在退出...</span>
+    <span data-msg="auth_loading">正在进入你们的小宇宙...</span>
+    <span data-msg="generic_error">出了点小问题，请稍后再试。</span>
+    <span data-msg="default_status">今天也在想你。</span>
+    <span data-msg="default_bio">这里还空着，等我来慢慢填满。</span>
+    <span data-msg="edit">编辑</span>
+    <span data-msg="delete">删除</span>
+    <span data-msg="note_required">写点什么再保存吧。</span>
+    <span data-msg="message_required">写点什么再发送吧。</span>
+    <span data-msg="note_saved">小纸条已保存</span>
+    <span data-msg="note_deleted">小纸条已删除</span>
+    <span data-msg="note_delete_confirm">要删除这张小纸条吗？</span>
+    <span data-msg="message_saved">留言成功</span>
+    <span data-msg="message_fail">留言失败，请重试</span>
+    <span data-msg="caption_saved">照片说明已更新</span>
+  </div>
+
+
+  <nav class="mobile-dock" aria-label="mobile navigation">
+    <a class="dock-item" href="index.html"><span class="dock-icon">&#8962;</span><span>首页</span></a>
+    <a class="dock-item is-active" href="space.html"><span class="dock-icon">&#9825;</span><span>空间</span></a>
+    <a class="dock-item" href="games.html"><span class="dock-icon">&#10047;</span><span>游戏</span></a>
+  </nav>
+
+  <script src="vendor/supabase.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/space.js"></script>
+</body>
+</html>

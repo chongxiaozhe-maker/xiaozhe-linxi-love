@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fbf4e8">
+  <meta name="description" content="小哲和琳茜的恋爱手账：等风也等你。">
+  <meta name="author" content="小哲 &amp; 琳茜">
+  <meta property="og:title" content="等风也等你 | 小哲 &amp; 琳茜">
+  <meta property="og:description" content="小哲和琳茜的恋爱手账：等风也等你。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary">
+  <title>等风也等你 | 小哲 &amp; 琳茜</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="mobile-nav.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"等风也等你 | 小哲 & 琳茜","description":"小哲和琳茜的恋爱手账：等风也等你。"}</script>
+</head>
+<body>
+  <div class="page-texture" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="回到首页">
+      <span class="brand-heart">&#9825;</span>
+      <span>小哲 <i>&amp;</i> 琳茜</span>
+    </a>
+    <nav class="nav-links" aria-label="页面导航">
+      <a href="#story">故事</a>
+      <a href="#cloud-date">云约会</a>
+      <a href="#letter">情书</a>
+      <a href="#particle-heart">心动</a>
+      <a href="#wishes">愿望</a>
+      <a href="space.html">双人空间</a>
+      <a href="games.html">小游戏</a>
+    </nav>
+    <button class="heart-btn" id="headerHeart" type="button" aria-label="点一颗爱心">&#9825;</button>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-doodles" aria-hidden="true">
+        <span class="doodle doodle-star">&#10022;</span>
+        <span class="doodle doodle-flower">&#10047;</span>
+        <span class="doodle doodle-heart">&#9825;</span>
+        <span class="doodle doodle-sparkle">&#10023;</span>
+      </div>
+
+      <div class="hero-copy">
+        <p class="eyebrow"><span>OUR LITTLE LOVE SITE</span><span class="eyebrow-dot">&#8226;</span><span>2026</span></p>
+        <h1>等风也等你</h1>
+        <p class="hero-subtitle">从大连到保定，我们正在靠近。</p>
+
+        <div class="days-board" aria-label="恋爱天数">
+          <div class="days-number">
+            <span id="daysTogether">0</span>
+            <small>天</small>
+          </div>
+          <div class="days-caption">
+            <span>我们已经在一起</span>
+            <span class="days-sub">从 9 月 6 日开始，每一天都在靠近</span>
+          </div>
+        </div>
+
+        <button class="sweet-btn" id="sweetButton" type="button">
+          <span class="sweet-icon">&#127852;</span>
+          点我拆一颗糖
+          <span class="sweet-arrow">&#8599;</span>
+        </button>
+      </div>
+
+      <div class="hero-postcards">
+        <article class="polaroid polaroid-zhe" aria-label="小哲">
+          <span class="tape" aria-hidden="true"></span>
+          <div class="photo-slot photo-slot-blue">
+            <img src="assets/photos/zhe-portrait.jpg" alt="小哲">
+          </div>
+          <div class="polaroid-caption">
+            <strong>小哲</strong>
+            <span>辽宁 &#183; 大连</span>
+          </div>
+          <span class="hand-note note-zhe">&#9825;</span>
+        </article>
+
+        <div class="route-line" aria-hidden="true">
+          <svg viewBox="0 0 190 110" role="presentation">
+            <path class="route-path" d="M8 92 C 48 72, 76 34, 119 45 S 165 70, 181 25"></path>
+            <path class="route-heart" d="M98 10 c-3.8-5.6-12.8-4.2-14.2 3.1-.9 4.5 2.7 8.5 7.2 11.6 1.1.8 2.5 1.7 3.8 2.4 1.3-.7 2.7-1.6 3.8-2.4 4.5-3.1 8.1-7.1 7.2-11.6C104.4 5.8 101.8 6.7 98 10Z" transform="translate(31 11) rotate(-13)"></path>
+          </svg>
+          <span class="route-plane">&#9992;</span>
+          <span class="route-label">正在靠近</span>
+        </div>
+
+        <article class="polaroid polaroid-lin" aria-label="琳茜">
+          <span class="tape tape-sage" aria-hidden="true"></span>
+          <div class="photo-slot photo-slot-pink">
+            <img src="assets/photos/lin-portrait.jpg" alt="琳茜">
+          </div>
+          <div class="polaroid-caption">
+            <strong>琳茜</strong>
+            <span>河北 &#183; 保定</span>
+          </div>
+          <span class="hand-note note-lin">我的未来星 &#10022;</span>
+        </article>
+      </div>
+
+      <div class="distance-strip">
+        <span class="distance-sticker">DISTANCE</span>
+        <p><strong>约 530 公里</strong> 地图上的直线距离</p>
+        <span class="distance-heart">&#9825;</span>
+        <p>但我们看的是同一片月亮</p>
+      </div>
+
+      <div class="scroll-hint" aria-hidden="true">
+        <span>SCROLL SLOWLY</span>
+        <span class="scroll-line"></span>
+      </div>
+    </section>
+
+    <section class="section story-section" id="story">
+      <div class="section-heading">
+        <span class="section-kicker">OUR STORY</span>
+        <h2>我们的故事</h2>
+        <p>故事才刚开始，剩下的慢慢一起写。</p>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-line" aria-hidden="true"></div>
+
+        <article class="timeline-item item-left">
+          <div class="timeline-dot"><span>&#9825;</span></div>
+          <div class="story-card">
+            <span class="washi washi-yellow">DAY 01</span>
+            <time datetime="2026-09-06">9 月 6 日</time>
+            <h3>我们在一起了</h3>
+            <p>从这一天开始，宝宝和宝贝有了共同的名字。</p>
+          </div>
+        </article>
+
+        <article class="timeline-item item-right">
+          <div class="timeline-dot"><span>&#9742;</span></div>
+          <div class="story-card">
+            <span class="washi washi-blue">EVERYDAY</span>
+            <time>把想念放进语音里</time>
+            <h3>隔着屏幕的日常</h3>
+            <p>分享三餐，互道晚安。虽然还没见面，但每一天都在认真参与彼此的生活。</p>
+          </div>
+        </article>
+
+        <article class="timeline-item item-left">
+          <div class="timeline-dot"><span>&#10022;</span></div>
+          <div class="story-card">
+            <span class="washi washi-pink">TO BE CONTINUED</span>
+            <time>未来的一页</time>
+            <h3>第一次见面</h3>
+            <p>等风也等你。等真正见到你的那天，要把攒了很久的拥抱，全部补给你。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section cloud-section" id="cloud-date">
+      <div class="section-heading">
+        <span class="section-kicker">LONG-DISTANCE DATE IDEAS</span>
+        <h2>我们的云端约会</h2>
+        <p>见不到面的日子，也要认真制造一点浪漫。</p>
+      </div>
+
+      <div class="checklist-wrap">
+        <div class="checklist-paper">
+          <div class="paper-clip" aria-hidden="true"></div>
+          <div class="checklist-head">
+            <span class="checklist-title">LOVE TO-DO LIST</span>
+            <span class="checklist-heart">&#9825;</span>
+          </div>
+          <div class="checklist-grid">
+            <label class="check-item">
+              <input type="checkbox" data-cloud-check="movie">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-content"><strong>一起看一部电影</strong><small>同时按下播放键</small></span>
+              <span class="check-emoji" aria-hidden="true">&#127916;</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" data-cloud-check="meal">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-content"><strong>视频吃一顿饭</strong><small>假装坐在彼此对面</small></span>
+              <span class="check-emoji" aria-hidden="true">&#127836;</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" data-cloud-check="sunset">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-content"><strong>看同一场日落</strong><small>把晚霞分享给对方</small></span>
+              <span class="check-emoji" aria-hidden="true">&#127751;</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" data-cloud-check="game">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-content"><strong>玩一局双人游戏</strong><small>输的人说十句喜欢</small></span>
+              <span class="check-emoji" aria-hidden="true">&#127918;</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" data-cloud-check="gift">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-content"><strong>互寄一份小礼物</strong><small>把心意装进快递盒</small></span>
+              <span class="check-emoji" aria-hidden="true">&#127873;</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" data-cloud-check="goodnight">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-content"><strong>连麦说晚安</strong><small>听着呼吸声入睡</small></span>
+              <span class="check-emoji" aria-hidden="true">&#127769;</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" data-cloud-check="letter">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-content"><strong>写一封未来信</strong><small>见面那天再一起打开</small></span>
+              <span class="check-emoji" aria-hidden="true">&#128140;</span>
+            </label>
+            <label class="check-item">
+              <input type="checkbox" data-cloud-check="meet">
+              <span class="check-box" aria-hidden="true"></span>
+              <span class="check-content"><strong>计划第一次见面</strong><small>把“以后”变成日期</small></span>
+              <span class="check-emoji" aria-hidden="true">&#128197;</span>
+            </label>
+          </div>
+          <div class="checklist-footer">
+            <span>已经一起完成 <strong id="cloudProgress">0</strong> / 8 件小事</span>
+            <div class="progress-track" aria-hidden="true"><span id="cloudProgressBar"></span></div>
+          </div>
+        </div>
+
+        <aside class="cloud-note">
+          <span class="note-pin" aria-hidden="true"></span>
+          <p class="note-hand">“不能见面的日子里，也要好好喜欢你。”</p>
+          <span class="note-sign">&#8212; 小哲</span>
+          <div class="note-stickers" aria-hidden="true">
+            <span>&#9733;</span><span>&#9829;</span><span>&#9729;</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section letter-section" id="letter">
+      <div class="section-heading">
+        <span class="section-kicker">A LETTER FOR YOU</span>
+        <h2>写给我的未来星小公主</h2>
+        <p>有些话，藏在信封里，等你亲手拆开。</p>
+      </div>
+
+      <div class="letter-scene">
+        <div class="envelope" id="envelope" role="button" tabindex="0" aria-expanded="false" aria-label="拆开小哲写给琳茜的信" data-open-tip="再点一下，把信收回去" data-close-tip="点击信封拆开这封信">
+          <div class="envelope-back"></div>
+          <div class="letter-paper">
+            <span class="letter-date">TO MY FUTURE STAR</span>
+            <h3>你好呀，未来星小公主：</h3>
+            <p>和你相处的这些时日，让我体验到了人生中十分珍贵的感受。</p>
+            <p>也许我们在很多方面各有所爱，但在和你相处时，我总能找到我们之间共有的部分。我不曾完整地定义过自己的性格，曾经对世界的体验，大多是一个人的四季、一个人到处走走。也许这就是我性格的底色。</p>
+            <p>短短几个月，让我对我们今后的二人世界充满种种憧憬。我愿意再看河北这片广袤的华北平原上青色的麦芒和秋日圆月时，多一个站在我身边的你。</p>
+            <p>你说你不喜欢选择，而我所缺的，正是一个在今后面对无数选择时，可以牢牢牵住的手掌。</p>
+            <p>事到如今，我既然参与不了你的过去，那便与你的余生奉陪到底。</p>
+            <span class="letter-signature">—— 小哲 ♡</span>
+          </div>
+          <div class="envelope-flap"></div>
+          <div class="envelope-front">
+            <span class="envelope-seal">&#9825;</span>
+            <span class="envelope-to">致 · 我的未来星小公主</span>
+          </div>
+        </div>
+        <p class="envelope-tip" id="envelopeTip">点击信封拆开这封信</p>
+      </div>
+    </section>
+
+    <section class="section gallery-section">
+      <div class="section-heading">
+        <span class="section-kicker">OUR PHOTO ALBUM</span>
+        <h2>慢慢填满的拍立得</h2>
+        <p>现在先留好位置，等你的照片来把它们填满。</p>
+      </div>
+
+      <div class="gallery-wall">
+        <figure class="gallery-card gallery-card-one">
+          <span class="gallery-tape" aria-hidden="true"></span>
+          <div class="gallery-photo">
+            <img src="assets/photos/zhe-portrait.jpg" alt="小哲的照片">
+          </div>
+          <figcaption>“海风替我先去见你。”</figcaption>
+        </figure>
+        <figure class="gallery-card gallery-card-two">
+          <span class="gallery-tape tape-blue" aria-hidden="true"></span>
+          <div class="gallery-photo gallery-photo-pink">
+            <img src="assets/photos/lin-portrait.jpg" alt="琳茜的照片">
+          </div>
+          <figcaption>“我的未来星，闪闪发光。”</figcaption>
+        </figure>
+        <figure class="gallery-card gallery-card-three">
+          <span class="gallery-tape tape-yellow" aria-hidden="true"></span>
+          <div class="gallery-photo gallery-photo-sage">
+            <span class="gallery-icon">&#10022;</span>
+            <span>第一次视频</span>
+            <small>未来回忆位</small>
+          </div>
+          <figcaption>“隔着屏幕，也忍不住笑。”</figcaption>
+        </figure>
+        <figure class="gallery-card gallery-card-four">
+          <span class="gallery-tape" aria-hidden="true"></span>
+          <div class="gallery-photo gallery-photo-cream">
+            <span class="gallery-icon">&#9825;</span>
+            <span>第一张合照</span>
+            <small>未来回忆位</small>
+          </div>
+          <figcaption>“留给第一次见面的我们。”</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section wishes-section" id="wishes">
+      <div class="section-heading">
+        <span class="section-kicker">THINGS TO DO TOGETHER</span>
+        <h2>见面后，想和你做的 6 件事</h2>
+        <p>把愿望先写下来，总有一天会一项一项打上勾。</p>
+      </div>
+
+      <div class="wish-grid">
+        <label class="wish-card">
+          <input type="checkbox" data-wish-check="hug">
+          <span class="wish-number">01</span>
+          <span class="wish-emoji" aria-hidden="true">&#129730;</span>
+          <strong>用力抱你一次</strong>
+          <span class="wish-line"></span>
+          <span class="wish-check" aria-hidden="true">完成啦</span>
+        </label>
+        <label class="wish-card">
+          <input type="checkbox" data-wish-check="hotpot">
+          <span class="wish-number">02</span>
+          <span class="wish-emoji" aria-hidden="true">&#127858;</span>
+          <strong>一起吃一顿火锅</strong>
+          <span class="wish-line"></span>
+          <span class="wish-check" aria-hidden="true">完成啦</span>
+        </label>
+        <label class="wish-card">
+          <input type="checkbox" data-wish-check="walk">
+          <span class="wish-number">03</span>
+          <span class="wish-emoji" aria-hidden="true">&#127807;</span>
+          <strong>牵着手慢慢散步</strong>
+          <span class="wish-line"></span>
+          <span class="wish-check" aria-hidden="true">完成啦</span>
+        </label>
+        <label class="wish-card">
+          <input type="checkbox" data-wish-check="photo">
+          <span class="wish-number">04</span>
+          <span class="wish-emoji" aria-hidden="true">&#128248;</span>
+          <strong>拍第一张合照</strong>
+          <span class="wish-line"></span>
+          <span class="wish-check" aria-hidden="true">完成啦</span>
+        </label>
+        <label class="wish-card">
+          <input type="checkbox" data-wish-check="sunrise">
+          <span class="wish-number">05</span>
+          <span class="wish-emoji" aria-hidden="true">&#127749;</span>
+          <strong>一起看一次日出</strong>
+          <span class="wish-line"></span>
+          <span class="wish-check" aria-hidden="true">完成啦</span>
+        </label>
+        <label class="wish-card">
+          <input type="checkbox" data-wish-check="ordinary">
+          <span class="wish-number">06</span>
+          <span class="wish-emoji" aria-hidden="true">&#9749;</span>
+          <strong>过一天普通的日常</strong>
+          <span class="wish-line"></span>
+          <span class="wish-check" aria-hidden="true">完成啦</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="particle-section" id="particle-heart">
+      <div class="particle-copy">
+        <span class="section-kicker">A HEART MADE OF US</span>
+        <h2>把想念，拼成一颗心</h2>
+        <p>每一颗粒子，都是一句没说出口的想你。把光标放上去，或轻轻碰一下。</p>
+      </div>
+      <div class="particle-stage" id="particleStage">
+        <canvas id="heartCanvas" role="img" aria-label="粒子爱心"></canvas>
+      </div>
+      <div class="particle-footer">
+        <p class="particle-names">小哲 <span>&#9825;</span> 琳茜</p>
+        <button class="particle-button" id="particleButton" type="button" data-message="散开也想你">轻轻碰一下</button>
+      </div>
+    </section>
+
+    <section class="ending">
+      <span class="ending-star" aria-hidden="true">&#10022;</span>
+      <p class="ending-small">TO BE CONTINUED</p>
+      <h2>等风也等你，<br>更等我们见面。</h2>
+      <p class="ending-names">小哲 <span>&#9825;</span> 琳茜</p>
+      <button class="ending-heart" id="endingHeart" type="button" aria-label="点一颗爱心">
+        <span>&#9825;</span>
+        <small>点一下</small>
+      </button>
+      <p class="ending-footer">Made with love &#183; 属于我们的恋爱手账</p>
+    </section>
+  </main>
+
+  <div class="toast" id="sweetToast" role="status" aria-live="polite">
+    <span class="toast-emoji" id="toastEmoji">&#127852;</span>
+    <span id="toastText">今天也很想你。</span>
+  </div>
+
+  <div class="heart-layer" id="heartLayer" aria-hidden="true"></div>
+
+  <nav class="mobile-dock" aria-label="mobile navigation">
+    <a class="dock-item is-active" href="index.html"><span class="dock-icon">&#8962;</span><span>首页</span></a>
+    <a class="dock-item" href="#story"><span class="dock-icon">&#10022;</span><span>故事</span></a>
+    <a class="dock-item" href="space.html"><span class="dock-icon">&#9825;</span><span>空间</span></a>
+    <a class="dock-item" href="games.html"><span class="dock-icon">&#10047;</span><span>游戏</span></a>
+    <a class="dock-item" href="#letter"><span class="dock-icon">&#9993;</span><span>情书</span></a>
+  </nav>
+
+
+  <script id="sweetNotes" type="application/json">["今天也很想你。","我们看的是同一片月亮。","想念正在从大连寄往保定。","你是我的未来星。","等风也等你，等我们见面。","隔着屏幕，也想抱抱你。","下次的晚霞，想和你一起看。","以后要一起吃好多顿饭。"]</script>
+  <script src="vendor/supabase.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
