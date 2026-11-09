@@ -6,6 +6,7 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#fbf4e8">
   <title>小游戏 · 小哲 & 琳茜</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="account.css">
   <link rel="stylesheet" href="games.css">
   <link rel="stylesheet" href="mobile-nav.css">
@@ -89,7 +90,7 @@
         </div>
         <div class="wheel-result" id="truthCard">
           <span class="truth-card-tag" id="truthCardTag">真心话</span>
-          <p id="truthCardText">转动摩天轮，看看今天会抽到什么。</p>
+          <p id="truthCardText" aria-live="polite">转动摩天轮，看看今天会抽到什么。</p>
           <span class="truth-card-heart">&#9825;</span>
         </div>
         <button class="game-action" id="drawTruthButton" type="button">转动摩天轮</button>
@@ -111,7 +112,7 @@
           <button class="game-action" id="createRoomButton" type="button">创建房间</button>
         </div>
         <div id="ticRoom" hidden>
-          <p class="game-hint" id="ticStatus">等待对方加入...</p>
+          <p class="game-hint" id="ticStatus" aria-live="polite">等待对方加入...</p>
           <div class="room-code-line">
             <span>房间号</span>
             <strong id="ticRoomCode"></strong>
@@ -135,7 +136,7 @@
           <button class="game-action" id="createFlightButton" type="button">创建飞行棋房间</button>
         </div>
         <div id="flightRoom" hidden>
-          <p class="game-hint" id="flightStatus">等待对方加入...</p>
+          <p class="game-hint" id="flightStatus" aria-live="polite">等待对方加入...</p>
           <div class="room-code-line">
             <span>房间号</span>
             <strong id="flightRoomCode"></strong>
