@@ -599,6 +599,15 @@
     if (event.target === modal) closeModal();
   });
 
+  document.addEventListener('keydown', function (event) {
+    if (event.key === 'Escape') {
+      closeModal();
+      closeNoteModal();
+      closeMessageModal();
+      closePhotoViewer();
+    }
+  });
+
   if (logoutButton) {
     logoutButton.addEventListener('click', async function () {
       logoutButton.disabled = true;
